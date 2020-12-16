@@ -20,16 +20,12 @@
                     @endif
                 @endguest
                 
+                
+
                 @auth
                     @can('viewAny', App\Models\Agencia::class)
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('agencias.index') }}">Agência</a>
-                    </li>
-                    @endcan
-
-                    @can('viewAny', App\Models\Comprador::class)
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('compradores.index') }}">Comprador</a>
                     </li>
                     @endcan
                     
@@ -46,14 +42,14 @@
                     </li>
                     @endadmin
 
-                    <li class="nav-item dropdown">
+                    {{-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="configDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Configurações
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="configDropdown">
                             <li><a class="dropdown-item" href="{{ route('senha.edit') }}">Senha</a></li>
                         </ul>
-                    </li>
+                    </li> --}}
 
                     <li class="nav-item">
                         <form id="logout-form" action="{{ route('logout') }}" method="POST">

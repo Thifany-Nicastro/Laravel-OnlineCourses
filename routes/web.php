@@ -13,6 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', 'WelcomeController')->name('inicio');
+
+Route::middleware(['auth'])->group(function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin.')->middleware(['admin'])->group(function () {
+        Route::resource('users', 'UserController');
+        Route::resource('roles', 'RoleController');
+        Route::resource('permissions', 'PermissionController');
+    });
+});
+
+Route::fallback(function(){
+    return view('errors.404');
 });

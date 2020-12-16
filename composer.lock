@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b8a2afd7628be7593440bd9811e9482e",
+    "content-hash": "571071b48caa9a52780c02c7dcf74ae6",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -991,48 +991,6 @@
                 "source": "https://github.com/guzzle/psr7/tree/1.7.0"
             },
             "time": "2020-09-30T07:37:11+00:00"
-        },
-        {
-            "name": "infureal/artisan-gui",
-            "version": "1.4.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/inFureal/artisan-gui.git",
-                "reference": "7ae11c809868197abe63718ed0a673b7607de5aa"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/inFureal/artisan-gui/zipball/7ae11c809868197abe63718ed0a673b7607de5aa",
-                "reference": "7ae11c809868197abe63718ed0a673b7607de5aa",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/framework": "^8.0",
-                "php": "^7.3"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Infureal\\Providers\\GuiServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Infureal\\": "./src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Beautiful package for [laravel:artisan] gui for cool kids.",
-            "support": {
-                "issues": "https://github.com/inFureal/artisan-gui/issues",
-                "source": "https://github.com/inFureal/artisan-gui/tree/1.4.1"
-            },
-            "time": "2020-11-22T08:38:40+00:00"
         },
         {
             "name": "laravel/fortify",
