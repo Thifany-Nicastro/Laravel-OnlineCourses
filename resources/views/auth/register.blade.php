@@ -12,59 +12,23 @@
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="first_name" class="col-sm-4 col-form-label text-sm-end">{{ __('First Name') }}</label>
-                            
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control @error('first_name') is-invalid @enderror" id="first_name" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
-                        
-                                <div class="invalid-feedback">
-                                    @error('first_name'){{ $message }}@enderror
-                                </div>
-                            </div>
+                            <x-forms.horizontal-input field="first_name" label="{{ __('First Name') }}" :value="old('first_name')"/>
                         </div>
 
                         <div class="row mb-3">
-                            <label for="last_name" class="col-sm-4 col-form-label text-sm-end">{{ __('Last Name') }}</label>
-                            
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control @error('last_name') is-invalid @enderror" id="last_name" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name">
-                        
-                                <div class="invalid-feedback">
-                                    @error('last_name'){{ $message }}@enderror
-                                </div>
-                            </div>
+                            <x-forms.horizontal-input field="last_name" label="{{ __('Last Name') }}" :value="old('last_name')"/>
                         </div>
 
                         <div class="row mb-3">
-                            <label for="email" class="col-sm-4 col-form-label text-sm-end">{{ __('E-Mail Address') }}</label>
-                            
-                            <div class="col-sm-6">
-                                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" required autocomplete="email">
-                        
-                                <div class="invalid-feedback">
-                                    @error('email'){{ $message }}@enderror
-                                </div>
-                            </div>
+                            <x-forms.horizontal-input type="email" field="email" label="{{ __('E-Mail Address') }}" :value="old('email')"/>
                         </div>
 
                         <div class="row mb-3">
-                            <label for="password" class="col-sm-4 col-form-label text-sm-end">{{ __('Password') }}</label>
-                            
-                            <div class="col-sm-6">
-                                <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" required autocomplete="new-password">
-                        
-                                <div class="invalid-feedback">
-                                    @error('password'){{ $message }}@enderror
-                                </div>
-                            </div>
+                            <x-forms.horizontal-input type="password" field="password" label="{{ __('Password') }}" :value="old('password')"/>
                         </div>
 
                         <div class="row mb-3">
-                            <label for="password_confirmation" class="col-sm-4 col-form-label text-sm-end">{{ __('Confirm Password') }}</label>
-                            
-                            <div class="col-sm-6">
-                                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required autocomplete="new-password">
-                            </div>
+                            <x-forms.horizontal-input type="password" field="password_confirmation" label="{{ __('Confirm Password') }}" :value="old('password_confirmation')"/>
                         </div>
 
                         <div class="row mb-3">
