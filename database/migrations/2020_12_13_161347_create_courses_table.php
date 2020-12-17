@@ -18,6 +18,7 @@ class CreateCoursesTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->decimal('price');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

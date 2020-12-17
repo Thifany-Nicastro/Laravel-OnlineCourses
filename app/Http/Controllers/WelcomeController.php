@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Course;
+use App\Models\Category;
+use App\Models\User;
 
 class WelcomeController extends Controller
 {
@@ -16,6 +18,7 @@ class WelcomeController extends Controller
     public function __invoke(Request $request)
     {
         $courses = Course::all();
-        return view('welcome', compact('courses'));
+        $categories = Category::all();
+        return view('welcome', compact('courses', 'categories'));
     }
 }

@@ -45,6 +45,11 @@ class User extends Authenticatable
         return $this->morphOne(Address::class, 'addressable');
     }
 
+    public function courses()
+    {
+        return $this->hasMany(Course::class);
+    }
+
     public function getFullNameAttribute()
     {
         return "{$this->first_name} {$this->last_name}";
@@ -55,6 +60,13 @@ class User extends Authenticatable
         (preg_match('/^\$2y\$/', $value))
             ? $this->attributes['password'] = $value
             : $this->attributes['password'] = Hash::make($value);
+    }
+
+    public function scopeInstructor($query)
+    {
+        return $query->whereHas('role', function ($q){
+            $q->where('name', 'instructor');
+        });
     }
 
     public function isAdmin()
