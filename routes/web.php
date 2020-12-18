@@ -20,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'WelcomeController')->name('inicio');
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/cart', 'CartController@index')->name('cart.index');
+    Route::put('/cart/{course}', 'CartController@update')->name('cart.update');
+
     Route::prefix('admin')->namespace('Admin')->name('admin.')->middleware(['admin'])->group(function () {
         Route::resource('users', 'UserController');
         Route::resource('roles', 'RoleController');

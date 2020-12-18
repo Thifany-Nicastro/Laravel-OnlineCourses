@@ -34,14 +34,6 @@
                             <li><a class="dropdown-item" href="{{ route('senha.edit') }}">Senha</a></li>
                         </ul>
                     </li> --}}
-
-                    <li class="nav-item">
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                            @csrf
-
-                            <button class="nav-link btn btn-link">Logout</button>
-                        </form>
-                    </li>
                 @endauth
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -61,7 +53,7 @@
 
                 @auth
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}"><i class="fas fa-shopping-cart"></i></a>
+                    <a class="nav-link" href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart"></i></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('register') }}"><i class="far fa-heart"></i></a>

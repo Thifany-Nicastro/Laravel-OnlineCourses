@@ -12,8 +12,16 @@
                     <h5 class="card-title">{{ $course->name }}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{ $course->instructor->full_name }}</h6>
                     <p class="card-text">{{ $course->description }}</p>
-                    <a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i></a>
-                    <a href="#" class="btn btn-primary"><i class="far fa-heart"></i></a>
+                    <div class="d-flex justify-content-between">
+                        
+                        <form action="{{ route('cart.update', $course) }}" method="POST">
+                            @csrf
+                            @method('PUT')
+
+                            <button class="btn btn-primary"><i class="fas fa-shopping-cart"></i></button>
+                        </form>
+                        <a href="#" class="btn btn-primary"><i class="far fa-heart"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
