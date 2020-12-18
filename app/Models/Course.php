@@ -16,8 +16,8 @@ class Course extends Model
         return $this->belongsToMany(Category::class);
     }
 
-    public function user()
+    public function instructor()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }
