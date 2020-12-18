@@ -31,7 +31,7 @@
         @yield('content')
     </main>
 
-    {{-- <footer class="footer bg-light">
+    <footer class="footer bg-light">
         <div class="container-fluid py-5">
             <div class="row justify-content-md-center">
                 <div class="col-3">
@@ -82,7 +82,7 @@
             © 2020 Copyright:
             <a class="text-dark" href="#">link</a>
           </div>
-    </footer> --}}
+    </footer>
 
     @include('notify::messages')
 

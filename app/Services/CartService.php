@@ -15,13 +15,18 @@ class CartService
 
     public function items()
     {
-        return collect([session('cart')]) ?? [];
+        return session('cart') ?? [];
     }
 
 
     public function addItem(Course $course)
     {
-        session(['cart' => $course]);
+        if (session()->has('cart')) {
+            session()->push('cart', $course);
+        } else {
+            $items[] = $course;
+            session(['cart' => $items]);
+        }
     }
 
     public function removeItem(Course $course)
