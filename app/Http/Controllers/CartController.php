@@ -93,4 +93,10 @@ class CartController extends Controller
         $this->cart->removeItem($course);
         return back();
     }
+
+    public function clean()
+    {
+        $this->cart->clean();
+        return back();
+    }
 }
