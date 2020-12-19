@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h2>Courses</h2>
-    <div class="row row-cols-4 gy-4 mt-2">
+    <div class="row row-md-cols-4 gy-4 mt-2">
         @forelse ($courses as $course)
         <div class="col">
             <div class="card" style="width: 18rem;">
@@ -11,7 +11,10 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $course->name }}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{ $course->instructor->full_name }}</h6>
-                    <p class="card-text">{{ $course->description }}</p>
+                    <p class="card-text">
+                        {{ $course->description }}<br>
+                        R$ {{ $course->price }}
+                    </p>
                     <div class="d-flex justify-content-between">
                         
                         <form action="{{ route('cart.update', $course) }}" method="POST">

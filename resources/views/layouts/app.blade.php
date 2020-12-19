@@ -20,6 +20,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 
+@inject('cart', 'App\Services\CartService')
+
 <body class="d-flex flex-column min-vh-100">
     <header>
         @include('layouts.partials.navbar')
@@ -52,6 +54,11 @@
             // var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
             //     return new bootstrap.Popover(popoverTriggerEl)
             // })
+
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            })
 
             $("form").submit(function( event ) {
                 $(".spinner").fadeIn();

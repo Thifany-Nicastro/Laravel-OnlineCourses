@@ -34,6 +34,20 @@ class CartService
 
     }
 
+    public function countItems()
+    {
+        return count($this->items());
+    }
+
+    public function totalValue()
+    {
+        $total = 0;
+        foreach($this->items() as $item) {
+            $total += $item->price;
+        }
+        return $total;
+    }
+
     public function clean()
     {
         session()->forget('cart');

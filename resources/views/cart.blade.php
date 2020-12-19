@@ -16,15 +16,30 @@
 
                     @forelse ($items as $item)
                     <div class="card mb-3">
-                        <div class="card-body">
+                        <div class="row g-0">
+                            <div class="col-md-2 text-center">
+                                <img src="https://www.cowgirlcontractcleaning.com/wp-content/uploads/sites/360/2018/05/placeholder-img-4.jpg" alt="...">
+                            </div>
+                            <div class="col-md-10">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $item->name }} <span class="float-end">R$ {{ $item->price }}</span></h5>
+                                    {{ $item->instructor->full_name }}
+                                    <button class="btn btn-sm btn-danger float-end">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- <div class="card-body">
                             <h6>{{ $item->name }}</h6>
                             {{ $item->instructor->full_name }}
                             <span class="float-end">R$ {{ $item->price }}</span>
-                        </div>
+                        </div> --}}
                     </div>
                     @empty
                     <div class="text-center p-5">
-                       <h4><i class="fas fa-shopping-cart fa-4x"></i><br>Your cart is empty</h4>
+                       <h4><i class="fas fa-shopping-cart fa-4x mb-3"></i><br>Your cart is empty</h4>
                     </div>
                     @endforelse
                     
@@ -72,7 +87,7 @@
 
                 <div class="card-body">
                     Total:
-                    <h3>R$ 432.90</h3>
+                    <h3>R$ {{ $totalValue }}</h3>
                 </div>
             </div>
         </div>

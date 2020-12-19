@@ -53,7 +53,7 @@
 
                 @auth
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart"></i></a>
+                    <a class="nav-link" href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart"></i> <span class="badge bg-primary">{{ $cart->countItems() }}</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('register') }}"><i class="far fa-heart"></i></a>

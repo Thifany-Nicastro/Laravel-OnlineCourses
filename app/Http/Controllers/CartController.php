@@ -23,7 +23,8 @@ class CartController extends Controller
     public function index()
     {
         $items = $this->cart->items();
-        return view('cart', compact('items'));
+        $totalValue = $this->cart->totalValue();
+        return view('cart', compact('items', 'totalValue'));
     }
 
     /**
