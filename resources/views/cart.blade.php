@@ -15,6 +15,7 @@
                     @endif
 
                     @forelse ($items as $item)
+                    
                     <div class="card mb-3">
                         <div class="row g-0">
                             <div class="col-md-2 text-center">
@@ -24,9 +25,14 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $item->name }} <span class="float-end">R$ {{ $item->price }}</span></h5>
                                     {{ $item->instructor->full_name }}
-                                    <button class="btn btn-sm btn-danger float-end">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
+                                    <form action="{{ route('cart.destroy', $item) }}" method="POST" class="form-destroy float-end">
+                                        @csrf
+                                        @method('DELETE')
+
+                                        <button class="btn btn-sm btn-danger">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

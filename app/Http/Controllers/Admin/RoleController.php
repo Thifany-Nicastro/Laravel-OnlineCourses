@@ -1,20 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Course;
+use App\Http\Controllers\Controller;
+use App\Models\Role;
 use Illuminate\Http\Request;
-use App\Services\CartService;
 
-class CartController extends Controller
+class RoleController extends Controller
 {
-    protected $cart;
-
-    public function __construct(CartService $cart)
-    {
-        $this->cart = $cart;
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -22,11 +15,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        // dd(session()->all());
-        //$this->cart->clean();
-        $items = $this->cart->items();
-        $totalValue = $this->cart->totalValue();
-        return view('cart', compact('items', 'totalValue'));
+        //
     }
 
     /**
@@ -53,10 +42,10 @@ class CartController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Course  $course
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function show(Course $course)
+    public function show(Role $role)
     {
         //
     }
@@ -64,10 +53,10 @@ class CartController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Course  $course
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function edit(Course $course)
+    public function edit(Role $role)
     {
         //
     }
@@ -76,30 +65,22 @@ class CartController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Course  $course
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Course $course)
+    public function update(Request $request, Role $role)
     {
-        $this->cart->addItem($course);
-        return back();
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Course  $course
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Course $course)
+    public function destroy(Role $role)
     {
-        $this->cart->removeItem($course);
-        return back();
-    }
-
-    public function clean()
-    {
-        $this->cart->clean();
-        return back();
+        //
     }
 }

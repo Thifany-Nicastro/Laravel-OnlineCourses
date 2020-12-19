@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="container">
-    <h2>Courses</h2>
-    <div class="row row-md-cols-4 gy-4 mt-2">
+    {{-- <h2>Courses</h2> --}}
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mt-2">
         @forelse ($courses as $course)
         <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src="https://www.cowgirlcontractcleaning.com/wp-content/uploads/sites/360/2018/05/placeholder-img-4.jpg" class="card-img-top" alt="...">
+            <div class="card shadow-sm">
+                <a href="{{ route('courses.show', $course) }}"><img src="https://www.cowgirlcontractcleaning.com/wp-content/uploads/sites/360/2018/05/placeholder-img-4.jpg" class="card-img-top" alt="..."></a>
                 <div class="card-body">
                     <h5 class="card-title">{{ $course->name }}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{ $course->instructor->full_name }}</h6>

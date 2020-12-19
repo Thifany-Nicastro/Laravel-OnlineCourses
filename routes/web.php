@@ -17,13 +17,15 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+
+
 Route::get('/', 'WelcomeController')->name('inicio');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/cart', 'CartController@index')->name('cart.index');
-    Route::put('/cart/{course}', 'CartController@update')->name('cart.update');
-    Route::delete('/cart/{course}', 'CartController@destroy')->name('cart.destroy');
     Route::get('/cart/clean', 'CartController@clean')->name('cart.clean');
+    Route::resource('cart', 'CartController')->parameters(['cart' => 'course']);
+
+    Route::resource('courses', 'CourseController')->except('show');
 
     Route::prefix('admin')->namespace('Admin')->name('admin.')->middleware(['admin'])->group(function () {
         Route::resource('users', 'UserController');
@@ -31,6 +33,8 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('permissions', 'PermissionController');
     });
 });
+
+Route::get('/courses/{course}', 'CourseController@show')->name('courses.show');
 
 Route::fallback(function(){
     return view('errors.404');
