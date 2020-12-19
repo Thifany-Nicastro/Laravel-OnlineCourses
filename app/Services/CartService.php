@@ -21,14 +21,25 @@ class CartService
 
     public function addItem(Course $course)
     {
-        if (session()->has('cart')) {
-            // session()->push('cart', $course);
-            session()->push("cart.[$course->reference]", $course);
-        } else {
-            $items[] = $course;
-            session(["cart.[$course->reference]" => $items]);
-            // session(['cart' => $items]);
-        }
+        // if (session()->has('cart')) {
+        //     // session()->push('cart', $course);
+        //     session()->push("cart.$course->reference", $course);
+        // } else {
+        //     $items[] = $course;
+        //     session(["cart.$course->reference" => $course]);
+        //     // session(['cart' => $items]);
+        // }
+
+        // if (session()->has('cart')) {
+        //     session()->push('cart', $course);
+        // } else {
+        //     $items[] = $course;
+        //     session(['cart' => $items]);
+        // }
+
+
+            session(["cart.$course->reference" => $course]);
+           
     }
 
     public function removeItem(Course $course)

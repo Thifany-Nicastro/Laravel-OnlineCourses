@@ -15,7 +15,6 @@
                     @endif
 
                     @forelse ($items as $item)
-                    
                     <div class="card mb-3">
                         <div class="row g-0">
                             <div class="col-md-2 text-center">
