@@ -21,10 +21,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'WelcomeController')->name('inicio');
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/cart/clean', 'CartController@clean')->name('cart.clean');
-    Route::resource('cart', 'CartController')->parameters(['cart' => 'course']);
+Route::get('/cart/clean', 'CartController@clean')->name('cart.clean');
+Route::resource('cart', 'CartController')->parameters(['cart' => 'course']);
 
+Route::middleware(['auth'])->group(function () {
     Route::resource('courses', 'CourseController')->except('show');
 
     Route::prefix('admin')->namespace('Admin')->name('admin.')->middleware(['admin'])->group(function () {

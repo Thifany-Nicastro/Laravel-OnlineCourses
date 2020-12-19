@@ -21,30 +21,12 @@ class CartService
 
     public function addItem(Course $course)
     {
-        // if (session()->has('cart')) {
-        //     // session()->push('cart', $course);
-        //     session()->push("cart.$course->reference", $course);
-        // } else {
-        //     $items[] = $course;
-        //     session(["cart.$course->reference" => $course]);
-        //     // session(['cart' => $items]);
-        // }
-
-        // if (session()->has('cart')) {
-        //     session()->push('cart', $course);
-        // } else {
-        //     $items[] = $course;
-        //     session(['cart' => $items]);
-        // }
-
-
-            session(["cart.$course->reference" => $course]);
-           
+        session(["cart.$course->reference" => $course]); 
     }
 
     public function removeItem(Course $course)
     {
-        session()->forget("cart.$course");
+        session()->forget("cart.$course->reference");
     }
 
     public function countItems()
@@ -52,12 +34,17 @@ class CartService
         return count($this->items());
     }
 
+    public function checkItem(Course $course)
+    {
+        return session()->has("cart.$course->reference");
+    }
+
     public function totalValue()
     {
-        $total = 100;
-        // foreach($this->items() as $item) {
-        //     $total += $item->price;
-        // }
+        $total = 0;
+        foreach($this->items() as $item) {
+            $total += $item->price;
+        }
         return $total;
     }
 

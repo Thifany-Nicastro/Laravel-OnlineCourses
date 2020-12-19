@@ -22,8 +22,6 @@ class CartController extends Controller
      */
     public function index()
     {
-        // dd(session()->all());
-        // $this->cart->clean();
         $items = $this->cart->items();
         $totalValue = $this->cart->totalValue();
         return view('cart', compact('items', 'totalValue'));
