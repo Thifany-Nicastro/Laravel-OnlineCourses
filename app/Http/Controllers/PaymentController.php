@@ -46,7 +46,13 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        dd('test');
+        $paymentMethodId = $request->payment_method_id;
+
+        $stripeCharge = $request->user()->charge(
+            100, $paymentMethodId
+        );
+
+        return redirect()->route('payments.success');
     }
 
     /**
@@ -57,7 +63,7 @@ class PaymentController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('payments.success');
     }
 
     /**

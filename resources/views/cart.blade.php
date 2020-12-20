@@ -35,12 +35,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        {{-- <div class="card-body">
-                            <h6>{{ $item->name }}</h6>
-                            {{ $item->instructor->full_name }}
-                            <span class="float-end">R$ {{ $item->price }}</span>
-                        </div> --}}
                     </div>
                     @empty
                     <div class="text-center p-5">
