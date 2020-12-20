@@ -56,6 +56,7 @@ You can now access the server at http://localhost:8000
 * [laravel/fortify](laravel/fortify)
 <!-- * [inFureal/artisan-gui](inFureal/artisan-gui) -->
 * [mckenziearts/laravel-notify](mckenziearts/laravel-notify)
+* [Laravel Cashier](https://laravel.com/docs/8.x/billing#introduction)
 
 ### Front
 * [Font Awesome](https://fontawesome.com/)

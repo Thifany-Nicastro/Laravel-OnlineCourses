@@ -27,6 +27,9 @@ Route::resource('cart', 'CartController')->parameters(['cart' => 'course']);
 Route::middleware(['auth'])->group(function () {
     Route::resource('courses', 'CourseController')->except('show');
 
+    Route::get('/payments/checkout', 'PaymentController@index')->name('payments.checkout');
+    Route::post('/payments/purchase', 'PaymentController@store')->name('payments.purchase');
+
     Route::prefix('admin')->namespace('Admin')->name('admin.')->middleware(['admin'])->group(function () {
         Route::resource('users', 'UserController');
         Route::resource('roles', 'RoleController');

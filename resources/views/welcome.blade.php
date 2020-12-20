@@ -17,7 +17,7 @@
                         {{ $course->description }}<br>
                         
                     </p>
-                    <h5>R$ {{ $course->price }}</h5>
+                    <h5>${{ $course->price }}</h5>
                     <div class="flex-grow-1 d-flex justify-content-between align-items-end">
                         <form action="{{ route('cart.update', $course) }}" method="POST">
                             @csrf

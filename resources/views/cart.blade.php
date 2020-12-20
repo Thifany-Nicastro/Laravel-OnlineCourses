@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-9">
             <div class="card">
                 <div class="card-header"></div>
 
@@ -47,41 +47,6 @@
                        <h4><i class="fas fa-shopping-cart fa-4x mb-3"></i><br>Your cart is empty</h4>
                     </div>
                     @endforelse
-                    
-                    {{-- <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Curso</th>
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @forelse ($items as $item)
-                                <tr>
-                                    <td>{{ $item->name }}</td>
-                                    <td>
-                                        <a type="button" href="{{ route('card.edit', $item) }}" class="btn btn-sm btn-primary">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                        <form action="{{ route('cart.destroy', $item) }}" method="POST" class="form-destroy">
-                                            @csrf
-                                            @method('DELETE')
-
-                                            <button class="btn btn-sm btn-danger">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                                @empty
-                                <tr>
-                                    <td colspan="2" class="text-center">Nothing</td>
-                                </tr>
-                                @endforelse
-                            </tbody>
-                        </table>
-                    </div> --}}
                 </div>
             </div>
         </div>
@@ -92,7 +57,10 @@
 
                 <div class="card-body">
                     Total:
-                    <h3>R$ {{ $totalValue }}</h3>
+                    <h3>${{ $totalValue }}</h3>
+                    <div class="d-grid gap-2">
+                        <a class="btn btn-primary p-3" href="{{ route('payments.checkout') }}" role="button">Checkout</a>
+                    </div>
                 </div>
             </div>
         </div>
