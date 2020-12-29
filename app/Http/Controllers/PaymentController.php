@@ -99,4 +99,10 @@ class PaymentController extends Controller
     {
         //
     }
+
+    // public function success()
+    // {
+    //     dd('aa');
+    //     return view('payments.success');
+    // }
 }

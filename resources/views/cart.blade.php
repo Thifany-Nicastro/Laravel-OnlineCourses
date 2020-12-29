@@ -51,9 +51,15 @@
 
                 <div class="card-body">
                     Total:
-                    <h3>${{ $totalValue }}</h3>
+                    <h3>${{ $totalValue }}</h3>          
                     <div class="d-grid gap-2">
+                        @if($items)
                         <a class="btn btn-primary p-3" href="{{ route('payments.checkout') }}" role="button">Checkout</a>
+                        @else
+                        <button class="btn btn-primary p-3" disabled>
+                            Checkout
+                        </button>
+                        @endif
                     </div>
                 </div>
             </div>

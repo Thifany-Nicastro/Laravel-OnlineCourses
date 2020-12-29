@@ -100,7 +100,7 @@
         } else {
             // The card has been verified successfully...
             // alert(paymentMethod.id)
-            $('#payment-method-id').val(paymentMethod.id)
+            $('#payment-method-id').val(paymentMethod)
             $('#checkout-form').submit()
         }
     });

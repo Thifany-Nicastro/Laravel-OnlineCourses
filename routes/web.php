@@ -30,7 +30,7 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('payments')->name('payments.')->group(function () {
         Route::get('/checkout', 'PaymentController@index')->name('checkout');
         Route::post('/purchase', 'PaymentController@store')->name('purchase');
-        Route::post('/success', 'PaymentController@show')->name('success');
+        Route::get('/success', 'PaymentController@show')->name('success');
     });
 
     Route::prefix('admin')->namespace('Admin')->name('admin.')->middleware(['admin'])->group(function () {
